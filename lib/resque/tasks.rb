@@ -55,7 +55,7 @@ namespace :resque do
     elsif defined?(Rails::Initializer)
       # Rails 2.3
       $rails_rake_task = false
-      Rails::Initializer.run :load_application_classes
+      Rails::Initializer.run :load_application_classes if ::Rails::Initializer.method_defined?(:load_application_classes)
     end
   end
 end
